@@ -1,0 +1,30 @@
+---
+title: "Automatisation du tri de CV pour une agence RH"
+categorie: "personnel"
+secteur: "RH"
+technologies: ["Python", "Next.js", "React"]
+lien: ""
+resume: "Un outil qui extrait automatiquement les CV reçus par email et les structure dans un tableau de bord interne."
+---
+
+## Contexte business
+
+Une agence de 150 consultants reçoit environ 50 CV par jour par email. Un employé passe 3 heures par jour à télécharger les CV, en extraire les informations clés et les recopier manuellement dans un fichier Excel.
+
+## Impact chiffré
+
+15 heures par semaine consacrées à une tâche répétitive, soit environ 2 000 € par mois en coût administratif — sans compter le temps que les RH ne passent pas à faire de vrais entretiens.
+
+## Solution technique
+
+- Un script Python qui se connecte à la boîte mail (IMAP ou API), détecte les nouveaux CV et en extrait le texte.
+- Un appel à un LLM pour structurer automatiquement les informations (nom, email, compétences) en JSON.
+- Une interface Next.js pour que l'équipe RH consulte et filtre les candidats extraits.
+
+## Preuve
+
+*(Lien vers la démo ou le dépôt de code à ajouter ici.)*
+
+## Explications techniques
+
+*(Détails d'architecture pour les lecteurs techniques à compléter.)*

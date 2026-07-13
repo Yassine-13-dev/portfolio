@@ -1,0 +1,11 @@
+{
+  "nav": {
+    "scenariosBusiness": "Scénarios Business",
+    "aPropos": "À propos de moi",
+    "experiences": "Mes expériences"
+  },
+  "home": {
+    "title": "Développeur Python & JavaScript",
+    "subtitle": "Je transforme les problèmes concrets des entreprises en solutions techniques."
+  }
+}
