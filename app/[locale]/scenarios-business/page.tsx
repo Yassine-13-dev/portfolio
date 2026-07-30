@@ -1,13 +1,27 @@
 import Link from "next/link";
 import { getAllScenarios } from "@/lib/scenarios";
+import FeaturedScenarios from "@/components/FeaturedScenarios";
 
 export default async function ScenariosBusinessPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ locale: string }>;
+  searchParams: Promise<{ q?: string }>;
 }) {
   const { locale } = await params;
-  const scenarios = getAllScenarios();
+  const { q } = await searchParams;
+  const allScenarios = getAllScenarios();
+
+  const query = q?.toLowerCase().trim() ?? "";
+  const scenarios = query
+    ? allScenarios.filter((s) =>
+        [s.title, s.secteur, ...s.technologies]
+          .join(" ")
+          .toLowerCase()
+          .includes(query)
+      )
+    : allScenarios;
 
   return (
     <section>
@@ -16,6 +30,18 @@ export default async function ScenariosBusinessPage({
         Des problèmes concrets d&apos;entreprises, et les solutions techniques
         apportées.
       </p>
+
+      {query && (
+        <p className="mt-4 text-sm text-ink/50">
+          {scenarios.length} résultat(s) pour <strong>&quot;{q}&quot;</strong>
+        </p>
+      )}
+
+      {!query && (
+        <div className="mt-6">
+          <FeaturedScenarios scenarios={allScenarios.slice(0, 6)} locale={locale} />
+        </div>
+      )}
 
       <div className="mt-8 grid gap-6 sm:grid-cols-2">
         {scenarios.map((scenario) => (
